@@ -7,6 +7,14 @@
  Jedeme retro cernobile, dnes barvy nepotrebujeme.
 */
 
+:root {
+    --fs-normal: 0.9rem;
+    --fs-smaller: 0.75rem;
+    --fs-bigger: 3rem;
+
+    --solid-grey-border: 0.5px 
+    solid rgba(128, 128, 128, 0.3);
+}
 
 body {
     margin: 0;
@@ -14,30 +22,373 @@ body {
     background-color: #f5f5f5;
     font-family: 'Merriweather', serif;
     font-size: 16px;
+    color: #223235;
     line-height: 1.6;
 }
+/* TABLETS */
+@media (min-width: 500px) {
+    :root {
+        --fs-normal: 1rem;
+        --fs-smaller: 0.825rem;
+        --fs-bigger: 3.3rem;
+    }
+}
 
+/* PC */
+@media (min-width: 1000px) {
+    :root {
+        --fs-normal: 1.1rem;
+        --fs-smaller: 0.9rem;
+        --fs-bigger: 3.6rem;
+    }
+}
 
-/* HLAVICKA */
+/* ----------HLAVICKA ---------- */
 
-.titulek {
+header {
+    background-color: lightblue;    /* will serve as a fallback in case image does not load */
+    background-image: url('images/island-hlavicka.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hlavicka {
+    padding: 1rem 2rem;
+    text-align: center;
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+h1 {
+    font-family: 'Raleway', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0.5rem auto;
+}
+
+.autor {
+    font-style: italic;
+    opacity: 0.65;
+}
+
+/* adding horizontal line before author's name */
+.perex {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.perex::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 0.1rem;
+    background-color: #fff;
+    position: absolute;
+    top: 110%;
+    left: calc((100% - 2rem * 2) / 2) ;
+}
+
+/* TABLETS */
+@media (min-width: 500px) {
+    header {
+        background-position: top center;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    .perex::after {
+        top: 120%;
+    }
+
+}
+
+/* PC */
+@media (min-width: 1000px) {
+    header {
+        background-position: center;
+    }
+    .hlavicka {
+        padding: 3rem 15rem 6rem 15rem;
+    }
+    h1 {
+        font-size: 6rem;
+    }
+
+}
+
+/* ---------- MENU ----------*/
+nav .menu {
+    list-style: none;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+nav .menu li {
+    border-bottom: var(--solid-grey-border);
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+nav .menu li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: var(--fs-smaller);
+    color: grey;
+    opacity: 0.5;
+}
+
+.menu li a:hover,
+.menu li a:focus { 
+    background: darkgray;
+    color: whitesmoke;
+    text-decoration: none;
+} 
+
+/* TABLET */
+@media (min-width: 500px) {
+    /* setting menu as a flexbox and adding border */
+    nav .menu {
+        flex-direction: row;
+    }
+    nav .menu li {
+        flex: 1 1 100%;
+        border-block: var(--solid-grey-border);
+        border-right: var(--solid-grey-border);
+    }
+    nav .menu li:nth-child(4){
+        border-right: none;
+    }
+}
+
+/* PC */
+@media (min-width: 1000px) {
+    nav .menu {
+        position: absolute;
+        flex-direction: column;
+        /* align-items: flex-start;  */
+        max-width: 25%;
+    }
+    nav .menu li {
+        flex-basis: 100%;
+        text-align: left;
+        border: none;
+        border-bottom: var(--solid-grey-border);
+        
+    }
+}
+
+/* ---------- TEXTOVA CAST ----------*/
+strong {
     font-family: 'Raleway', serif;
 }
 
+p {
+    font-size: var(--fs-normal);
+}
+main p {
+    padding: 0 1rem;
+}
 
-/* MENU */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+main section {
+    margin-block: 2rem;
+}
+.foto-v-textu {
+    margin-block: 3rem;
+}
+
+.foto-v-textu .popisek {
+    margin-top: 1px;
+}
+
+h2 {
+    font-family: 'Raleway', serif;
+    padding: 0 1rem;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+/* adding horizontal line under each section heading */
+h2::after {
+    content: "";
+    display: block;
+    width: 7rem;
+    height: 0.2rem;
+    background-color: steelblue;
+    position: absolute;
+    top: 100%;
+    left: -3rem;
+    margin-block: 1rem;
+}
+
+/* TABLET */
+@media (min-width: 500px) {
+    .foto-v-textu {
+        position: relative;
+    }
+    .foto-v-textu .popisek {
+        position: absolute;
+        top: 92%;
+        right: 0;
+        color: #ffff;
+    }
+}
+/* PC */
+@media (min-width: 1000px) {
+    main {
+        position: relative;
+        margin-inline: 7rem;
+        margin-top: -5rem;
+        background-color: #fff;
+        box-shadow: 0 0.5rem 1rem #bdc3c7;
+    }
+    .uvod {
+        padding-top: 1.5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .vpravo p,
+    .vpravo h2 {
+        padding-left: 25%;
+        padding-right: 5%;
+    } 
+    .vpravo h2::after {
+        left: calc(-2.5rem + 25%);
+    }
+    .vlevo p,
+    .vlevo h2 {
+        padding-right: 25%;
+        padding-left: 5%;
+    }
+    .vlevo h2::after {
+        left: calc(-2.5rem + 5%);
+    }
+    .foto p {
+        padding-right: 1rem;
+
+    }
+}
+
+/* ---------- FOTOGALERIE ---------- */
+
+.popisek {
+    color: grey;
+    font-family: 'Raleway', serif;
+    font-weight: 700;
+    text-align: center;
+}
+.popisek{
+    display: block;
+    line-height: 1.1;
+    padding-bottom: 0.5rem;
+}
+
+.popisek-copy,
+.popisek-copy a {
+    color: inherit;
+    font-weight: 200;
+    font-size: var(--fs-smaller);
+}
+
+.popisek-copy a:hover,
+.popisek-copy a:focus { 
+    background: darkgray;
+    color: whitesmoke;
+    text-decoration: none;
+} 
 
 
+/* TABLETS */
+@media (min-width: 500px) {
+    .fotogalerie {
+        margin-block: 0;
+    }
+
+    .galerie {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .galerie .foto {
+        flex-basis: 50%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
+    .galerie .foto img {
+        transition: transform 0.3s;
+    }
+
+    .galerie .foto:hover img {
+        transform: scale(1.1);
+    }
+    
+    .galerie .popisek {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        width: 100%;
+        transition: transform 0.3s;
+        padding-block: 0.5rem;
+    }
+
+    .galerie .foto:hover .popisek {
+        transform: translateY(-130%);
+    }
+
+}
+
+/* PC */
+@media (min-width: 1000px) {
+    .galerie .foto {
+        flex-basis: calc(100% / 3);
+    }
+}
+
+/* ---------- PATICKA ---------- */
+footer {
+    padding: 1rem;
+    text-align: left;
+    background-color: rgba(211, 211, 211, 0.3);
+    color: gray;
+    box-shadow: inset 0 0.5rem 1rem #bdc3c7;
+}
+
+footer p {
+    font-size: var(--fs-smaller);
+}
+
+footer a {
+    color: gray; 
+}
+
+footer a:hover,
+footer a:focus { 
+    background: darkgray;
+    color: whitesmoke;
+    text-decoration: none;
+} 
 
 
-/* OBSAH */
+/* TABLETS */
+@media (min-width: 500px) {
 
+}
 
-
-
-/* FOTOGALERIE */
-
-
-
-
-/* PATICKA */
+/* PC */
+@media (min-width: 1000px) {
+    footer { 
+        box-shadow: none;
+        background-color: #f5f5f5;
+        padding-left: 7rem;
+    }
+}
