@@ -12,8 +12,7 @@
     --fs-smaller: 0.75rem;
     --fs-bigger: 3rem;
 
-    --solid-grey-border: 0.5px 
-    solid rgba(128, 128, 128, 0.3);
+    --solid-grey-border: 0.5px solid rgba(128, 128, 128, 0.3);
 }
 
 body {
@@ -25,6 +24,7 @@ body {
     color: #223235;
     line-height: 1.6;
 }
+
 /* TABLETS */
 @media (min-width: 500px) {
     :root {
@@ -43,8 +43,8 @@ body {
     }
 }
 
-/* ----------HLAVICKA ---------- */
 
+/* ----------HLAVICKA ---------- */
 header {
     background-color: lightblue;    /* will serve as a fallback in case image does not load */
     background-image: url('images/island-hlavicka.jpg');
@@ -98,9 +98,8 @@ h1 {
         font-size: 4rem;
     }
     .perex::after {
-        top: 120%;
+        top: 110%;
     }
-
 }
 
 /* PC */
@@ -108,13 +107,12 @@ h1 {
     header {
         background-position: center;
     }
-    .hlavicka {
-        padding: 3rem 15rem 6rem 15rem;
-    }
     h1 {
         font-size: 6rem;
     }
-
+    .hlavicka {
+        padding: 3rem 15rem 6rem 15rem;
+    }
 }
 
 /* ---------- MENU ----------*/
@@ -168,17 +166,16 @@ nav .menu li a {
     nav .menu {
         position: absolute;
         flex-direction: column;
-        /* align-items: flex-start;  */
         max-width: 25%;
     }
     nav .menu li {
-        flex-basis: 100%;
         text-align: left;
         border: none;
         border-bottom: var(--solid-grey-border);
         
     }
 }
+
 
 /* ---------- TEXTOVA CAST ----------*/
 strong {
@@ -188,6 +185,7 @@ strong {
 p {
     font-size: var(--fs-normal);
 }
+
 main p {
     padding: 0 1rem;
 }
@@ -200,6 +198,7 @@ img {
 main section {
     margin-block: 2rem;
 }
+
 .foto-v-textu {
     margin-block: 3rem;
 }
@@ -277,8 +276,8 @@ h2::after {
     }
 }
 
-/* ---------- FOTOGALERIE ---------- */
 
+/* ---------- FOTOGALERIE ---------- */
 .popisek {
     color: grey;
     font-family: 'Raleway', serif;
@@ -311,7 +310,6 @@ h2::after {
     .fotogalerie {
         margin-block: 0;
     }
-
     .galerie {
         display: flex;
         flex-wrap: wrap;
@@ -325,8 +323,7 @@ h2::after {
     .galerie .foto img {
         transition: transform 0.3s;
     }
-
-    .galerie .foto:hover img {
+    .galerie .foto img:hover {
         transform: scale(1.1);
     }
     
@@ -340,11 +337,9 @@ h2::after {
         transition: transform 0.3s;
         padding-block: 0.5rem;
     }
-
     .galerie .foto:hover .popisek {
         transform: translateY(-130%);
     }
-
 }
 
 /* PC */
@@ -353,6 +348,7 @@ h2::after {
         flex-basis: calc(100% / 3);
     }
 }
+
 
 /* ---------- PATICKA ---------- */
 footer {
@@ -381,7 +377,6 @@ footer a:focus {
 
 /* TABLETS */
 @media (min-width: 500px) {
-
 }
 
 /* PC */
